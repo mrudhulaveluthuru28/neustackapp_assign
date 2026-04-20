@@ -1,0 +1,261 @@
+[
+  {
+    "source_header": "Payroll_Num",
+    "samples": [
+      "P-88021",
+      "P-88034",
+      "P-88047",
+      "P-88059",
+      "P-88063"
+    ],
+    "proposed_field": "employee_id",
+    "confidence": 78,
+    "rationale": "Header \"Payroll_Num\" and consistent alphanumeric pattern \"P-NNNNN\" strongly suggest a stable HR/payroll employee identifier.",
+    "alternatives": [
+      {
+        "field": "__unmapped__",
+        "confidence": 22
+      }
+    ]
+  },
+  {
+    "source_header": "Full Name",
+    "samples": [
+      "NAME",
+      "NAME",
+      "NAME",
+      "NAME",
+      "NAME"
+    ],
+    "proposed_field": "__needs_split__",
+    "confidence": 95,
+    "rationale": "Header \"Full Name\" is a classic combined name field that must be split into first and last name components.",
+    "alternatives": [
+      {
+        "field": "__unmapped__",
+        "confidence": 10
+      }
+    ],
+    "split_targets": [
+      "first_name",
+      "last_name"
+    ]
+  },
+  {
+    "source_header": "DOB",
+    "samples": [
+      "03/12/85",
+      "11/23/75",
+      "01/30/91",
+      "06/08/83",
+      "09/17/79"
+    ],
+    "proposed_field": "date_of_birth",
+    "confidence": 98,
+    "rationale": "\"DOB\" is a standard abbreviation for Date of Birth, and MM/DD/YY sample values confirm birth date content.",
+    "value_warning": "Dates are in MM/DD/YY (2-digit year) format; downstream parser should interpret 2-digit years with appropriate century pivot (e.g., 00–30 → 2000s, 31–99 → 1900s)."
+  },
+  {
+    "source_header": "Home State",
+    "samples": [
+      "California",
+      "New York",
+      "Washington",
+      "Illinois",
+      "Texas"
+    ],
+    "proposed_field": "state",
+    "confidence": 82,
+    "rationale": "Header \"Home State\" and sample values are full US state names, clearly mapping to the residence state canonical field.",
+    "alternatives": [
+      {
+        "field": "__unmapped__",
+        "confidence": 10
+      }
+    ],
+    "value_warning": "Values are full state names (e.g., \"California\"); canonical expects 2-letter USPS codes (e.g., \"CA\"). Value-level transform required before publish."
+  },
+  {
+    "source_header": "Postal Code",
+    "samples": [
+      "94107-1234",
+      "10025",
+      "98104-0455",
+      "60614",
+      "75201-2200"
+    ],
+    "proposed_field": "zip",
+    "confidence": 90,
+    "rationale": "Header \"Postal Code\" and sample values are clearly US ZIP codes; mix of 5-digit and ZIP+4 formats present.",
+    "alternatives": [
+      {
+        "field": "__unmapped__",
+        "confidence": 10
+      }
+    ],
+    "value_warning": "Mix of 5-digit and ZIP+4 formats (e.g., \"94107-1234\"); downstream system must normalize to 5-digit or ZIP+4 as required by tenant configuration."
+  },
+  {
+    "source_header": "Base Rate",
+    "samples": [
+      "40.87",
+      "71.39",
+      "32.50",
+      "53.85",
+      "64.78"
+    ],
+    "proposed_field": "annual_salary",
+    "confidence": 72,
+    "rationale": "Header \"Base Rate\" with values under 200 strongly indicates hourly pay rate, mapping to annual_salary with required transform.",
+    "alternatives": [
+      {
+        "field": "__unmapped__",
+        "confidence": 28
+      }
+    ],
+    "value_warning": "Values appear to be hourly rates (all under $200); requires ×2080 annualization transform before publish to produce annual_salary in USD."
+  },
+  {
+    "source_header": "Start Dt",
+    "samples": [
+      "2019-03-04",
+      "2012-07-15",
+      "2021-09-01",
+      "2016-02-22",
+      "2014-05-18"
+    ],
+    "proposed_field": "hire_date",
+    "confidence": 82,
+    "rationale": "\"Start Dt\" is a common abbreviation for employment start date; ISO-formatted date samples align with hire_date semantics.",
+    "alternatives": [
+      {
+        "field": "__unmapped__",
+        "confidence": 18
+      }
+    ]
+  },
+  {
+    "source_header": "FT/PT",
+    "samples": [
+      "FT",
+      "FT",
+      "PT",
+      "FT",
+      "FT"
+    ],
+    "proposed_field": "__unmapped__",
+    "confidence": 95,
+    "rationale": "Header \"FT/PT\" and values like \"FT\"/\"PT\" indicate work schedule, not employment status; no canonical field captures schedule.",
+    "alternatives": [
+      {
+        "field": "employment_status",
+        "confidence": 20
+      }
+    ]
+  },
+  {
+    "source_header": "Policy Amount",
+    "samples": [
+      "$250,000",
+      "$500,000",
+      "$150,000",
+      "$300,000",
+      "$400,000"
+    ],
+    "proposed_field": "coverage_amount",
+    "confidence": 92,
+    "rationale": "Header \"Policy Amount\" directly signals insurance face/coverage amount; sample values are USD dollar figures consistent with life policy limits.",
+    "alternatives": [
+      {
+        "field": "__unmapped__",
+        "confidence": 8
+      }
+    ],
+    "value_warning": "Values are currency strings with \"$\" and \",\" formatting (e.g., \"$250,000\"); must be stripped to plain numeric USD integers before publish."
+  },
+  {
+    "source_header": "Smoker Status",
+    "samples": [
+      "Never",
+      "Former",
+      "Never",
+      "Current",
+      "Former"
+    ],
+    "proposed_field": "smoker",
+    "confidence": 88,
+    "rationale": "Header \"Smoker Status\" directly references the smoker canonical field; sample values Never/Former/Current confirm tobacco indicator.",
+    "alternatives": [
+      {
+        "field": "__unmapped__",
+        "confidence": 12
+      }
+    ],
+    "value_warning": "3-way values (Never/Former/Current) detected; canonical expects binary (Yes/No). \"Former\" reconciliation must be resolved per tenant policy before publish."
+  },
+  {
+    "source_header": "Kids",
+    "samples": [
+      "2",
+      "3",
+      "0",
+      "1",
+      "2"
+    ],
+    "proposed_field": "dependent_count",
+    "confidence": 72,
+    "rationale": "\"Kids\" header with small integer sample values strongly suggests a count of child dependents covered under the policy.",
+    "alternatives": [
+      {
+        "field": "__unmapped__",
+        "confidence": 28
+      }
+    ],
+    "value_warning": "Header \"Kids\" implies children-only scope; confirm with tenant whether spouse/domestic partner dependents are tracked separately or included in this count before publishing."
+  },
+  {
+    "source_header": "Notes",
+    "samples": [
+      "contractor until Jun",
+      "short-term",
+      "out on FMLA"
+    ],
+    "proposed_field": "__unmapped__",
+    "confidence": 99,
+    "rationale": "Header is \"Notes\" with free-text sample values; no canonical field captures unstructured commentary."
+  },
+  {
+    "source_header": "Termination Date",
+    "samples": [
+      "2024-03-15"
+    ],
+    "proposed_field": "__unmapped__",
+    "confidence": 92,
+    "rationale": "Header \"Termination Date\" is a termination event date; no canonical v1 field captures this — it is explicitly not hire_date.",
+    "alternatives": [
+      {
+        "field": "hire_date",
+        "confidence": 10
+      }
+    ]
+  },
+  {
+    "source_header": "Effective Date",
+    "samples": [
+      "2022-01-01",
+      "2022-01-01",
+      "2023-06-01",
+      "2022-01-01",
+      "2022-01-01"
+    ],
+    "proposed_field": "__unmapped__",
+    "confidence": 22,
+    "rationale": "Header \"Effective Date\" signals benefit effective date, not hire date; no canonical field captures benefit effective date in v1.",
+    "alternatives": [
+      {
+        "field": "hire_date",
+        "confidence": 30
+      }
+    ]
+  }
+]

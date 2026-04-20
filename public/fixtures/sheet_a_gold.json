@@ -1,0 +1,14 @@
+{
+  "EE ID": "employee_id",
+  "First": "first_name",
+  "Last": "last_name",
+  "Birth Dt": "date_of_birth",
+  "ST": "state",
+  "Zip": "zip",
+  "Annual Comp": "annual_salary",
+  "Hire": "hire_date",
+  "Status": "employment_status",
+  "Face Amt": "coverage_amount",
+  "Tobacco": "smoker",
+  "# Deps": "dependent_count"
+}

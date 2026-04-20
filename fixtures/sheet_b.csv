@@ -1,0 +1,9 @@
+Payroll_Num,Full Name,DOB,Home State,Postal Code,Base Rate,Start Dt,FT/PT,Policy Amount,Smoker Status,Kids,Notes,Termination Date,Effective Date
+P-88021,John Q Smith,03/12/85,California,94107-1234,40.87,2019-03-04,FT,"$250,000",Never,2,,,2022-01-01
+P-88034,Maria Garcia Jr.,11/23/75,New York,10025,71.39,2012-07-15,FT,"$500,000",Former,3,"contractor until Jun",,2022-01-01
+P-88047,Sam R Rivera,01/30/91,Washington,98104-0455,32.50,2021-09-01,PT,"$150,000",Never,0,,,2023-06-01
+P-88059,Linh T Nguyen,06/08/83,Illinois,60614,53.85,2016-02-22,FT,"$300,000",Current,1,short-term,,2022-01-01
+P-88063,Priya S Rao,09/17/79,Texas,75201-2200,64.78,2014-05-18,FT,"$400,000",Former,2,,,2022-01-01
+P-88078,Chris O'Neil II,12/02/95,Florida,33101,28.32,2022-11-14,PT,"$100,000",Current,0,,,2023-06-01
+P-88090,Alex J Park,03/25/86,Massachusetts,02139-0012,42.43,2018-08-06,FT,"$200,000",Never,1,"out on FMLA",2024-03-15,2022-01-01
+P-88104,Dana Wu-Nakamura,07/19/90,Colorado,80202,36.77,2020-06-10,PT,"$175,000",Never,0,,,2023-06-01

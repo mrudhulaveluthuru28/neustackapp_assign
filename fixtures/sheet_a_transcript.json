@@ -1,0 +1,355 @@
+{
+  "sheet": "Sheet A",
+  "csv": "fixtures/sheet_a.csv",
+  "source": "live",
+  "model": "claude-sonnet-4-6",
+  "prompt_version": "mapping-v1.0.0",
+  "latency_ms": 8501,
+  "generated_at": "2026-04-20T07:49:24.030Z",
+  "columns": [
+    {
+      "header": "EE ID",
+      "samples": [
+        "10234",
+        "10245",
+        "10258",
+        "10266",
+        "10271"
+      ]
+    },
+    {
+      "header": "First",
+      "samples": [
+        "Avery",
+        "Jordan",
+        "Taylor",
+        "Marcus",
+        "Priya"
+      ]
+    },
+    {
+      "header": "Last",
+      "samples": [
+        "Chen",
+        "Patel",
+        "Kim",
+        "Lee",
+        "Rao"
+      ]
+    },
+    {
+      "header": "Birth Dt",
+      "samples": [
+        "1988-04-12",
+        "1975-11-23",
+        "1991-01-30",
+        "1983-06-08",
+        "1979-09-17"
+      ]
+    },
+    {
+      "header": "ST",
+      "samples": [
+        "CA",
+        "NY",
+        "WA",
+        "IL",
+        "TX"
+      ]
+    },
+    {
+      "header": "Zip",
+      "samples": [
+        "94107",
+        "10025",
+        "98104",
+        "60614",
+        "75201"
+      ]
+    },
+    {
+      "header": "Annual Comp",
+      "samples": [
+        "92000",
+        "148500",
+        "67400",
+        "112000",
+        "134750"
+      ]
+    },
+    {
+      "header": "Hire",
+      "samples": [
+        "2019-03-04",
+        "2012-07-15",
+        "2021-09-01",
+        "2016-02-22",
+        "2014-05-18"
+      ]
+    },
+    {
+      "header": "Status",
+      "samples": [
+        "Active",
+        "Active",
+        "Active",
+        "Leave",
+        "Active"
+      ]
+    },
+    {
+      "header": "Face Amt",
+      "samples": [
+        "250000",
+        "500000",
+        "150000",
+        "300000",
+        "400000"
+      ]
+    },
+    {
+      "header": "Tobacco",
+      "samples": [
+        "N",
+        "N",
+        "N",
+        "N",
+        "Y"
+      ]
+    },
+    {
+      "header": "# Deps",
+      "samples": [
+        "2",
+        "3",
+        "0",
+        "1",
+        "2"
+      ]
+    }
+  ],
+  "proposals": [
+    {
+      "source_header": "EE ID",
+      "samples": [
+        "10234",
+        "10245",
+        "10258",
+        "10266",
+        "10271"
+      ],
+      "proposed_field": "employee_id",
+      "confidence": 97,
+      "rationale": "\"EE ID\" is standard HR shorthand for Employee ID; numeric sample values match typical payroll identifier patterns exactly.",
+      "alternatives": [
+        {
+          "field": "__unmapped__",
+          "confidence": 5
+        }
+      ]
+    },
+    {
+      "source_header": "First",
+      "samples": [
+        "NAME",
+        "NAME",
+        "NAME",
+        "NAME",
+        "NAME"
+      ],
+      "proposed_field": "first_name",
+      "confidence": 95,
+      "rationale": "Header \"First\" is a direct, unambiguous abbreviation for a given/first name field; all sample values match the NAME token pattern.",
+      "alternatives": [
+        {
+          "field": "__needs_split__",
+          "confidence": 10
+        }
+      ]
+    },
+    {
+      "source_header": "Last",
+      "samples": [
+        "NAME",
+        "NAME",
+        "NAME",
+        "NAME",
+        "NAME"
+      ],
+      "proposed_field": "last_name",
+      "confidence": 95,
+      "rationale": "Header \"Last\" is a standard abbreviation for last/family name; all sample values match the NAME token pattern.",
+      "alternatives": [
+        {
+          "field": "first_name",
+          "confidence": 10
+        }
+      ]
+    },
+    {
+      "source_header": "Birth Dt",
+      "samples": [
+        "1988-04-12",
+        "1975-11-23",
+        "1991-01-30",
+        "1983-06-08",
+        "1979-09-17"
+      ],
+      "proposed_field": "date_of_birth",
+      "confidence": 95,
+      "rationale": "\"Birth Dt\" is an unambiguous abbreviation for birth date; sample values are consistent ISO-8601 date strings."
+    },
+    {
+      "source_header": "ST",
+      "samples": [
+        "CA",
+        "NY",
+        "WA",
+        "IL",
+        "TX"
+      ],
+      "proposed_field": "state",
+      "confidence": 95,
+      "rationale": "Sample values are all two-letter uppercase USPS state codes, resolving \"ST\" ambiguity decisively toward state.",
+      "alternatives": [
+        {
+          "field": "employment_status",
+          "confidence": 10
+        }
+      ]
+    },
+    {
+      "source_header": "Zip",
+      "samples": [
+        "94107",
+        "10025",
+        "98104",
+        "60614",
+        "75201"
+      ],
+      "proposed_field": "zip",
+      "confidence": 98,
+      "rationale": "Header \"Zip\" and all sample values are standard 5-digit US postal codes, exactly matching the zip canonical field.",
+      "alternatives": [
+        {
+          "field": "__unmapped__",
+          "confidence": 2
+        }
+      ]
+    },
+    {
+      "source_header": "Annual Comp",
+      "samples": [
+        "92000",
+        "148500",
+        "67400",
+        "112000",
+        "134750"
+      ],
+      "proposed_field": "annual_salary",
+      "confidence": 92,
+      "rationale": "Header \"Annual Comp\" directly signals annualized compensation; sample values are large whole-dollar USD amounts consistent with annual salaries.",
+      "alternatives": [
+        {
+          "field": "__unmapped__",
+          "confidence": 8
+        }
+      ]
+    },
+    {
+      "source_header": "Hire",
+      "samples": [
+        "2019-03-04",
+        "2012-07-15",
+        "2021-09-01",
+        "2016-02-22",
+        "2014-05-18"
+      ],
+      "proposed_field": "hire_date",
+      "confidence": 92,
+      "rationale": "Header \"Hire\" is a direct abbreviation of hire_date, and all sample values are ISO-8601 date strings consistent with employment start dates.",
+      "alternatives": [
+        {
+          "field": "__unmapped__",
+          "confidence": 8
+        }
+      ]
+    },
+    {
+      "source_header": "Status",
+      "samples": [
+        "Active",
+        "Active",
+        "Active",
+        "Leave",
+        "Active"
+      ],
+      "proposed_field": "employment_status",
+      "confidence": 92,
+      "rationale": "Sample values \"Active\" and \"Leave\" are canonical employment-state words, not 2-letter state codes or schedule indicators.",
+      "alternatives": [
+        {
+          "field": "state",
+          "confidence": 5
+        }
+      ]
+    },
+    {
+      "source_header": "Face Amt",
+      "samples": [
+        "250000",
+        "500000",
+        "150000",
+        "300000",
+        "400000"
+      ],
+      "proposed_field": "coverage_amount",
+      "confidence": 92,
+      "rationale": "\"Face Amt\" is standard insurance shorthand for face/policy amount; numeric USD values (150k–500k) confirm life coverage amounts.",
+      "alternatives": [
+        {
+          "field": "__unmapped__",
+          "confidence": 8
+        }
+      ]
+    },
+    {
+      "source_header": "Tobacco",
+      "samples": [
+        "N",
+        "N",
+        "N",
+        "N",
+        "Y"
+      ],
+      "proposed_field": "smoker",
+      "confidence": 92,
+      "rationale": "Header \"Tobacco\" is a direct synonym for smoker/tobacco-use indicator; sample values are binary Y/N, matching canonical expectation.",
+      "alternatives": [
+        {
+          "field": "__unmapped__",
+          "confidence": 8
+        }
+      ]
+    },
+    {
+      "source_header": "# Deps",
+      "samples": [
+        "2",
+        "3",
+        "0",
+        "1",
+        "2"
+      ],
+      "proposed_field": "dependent_count",
+      "confidence": 87,
+      "rationale": "\"# Deps\" is a clear abbreviation for \"Number of Dependents\"; sample values are small non-negative integers consistent with dependent counts.",
+      "alternatives": [
+        {
+          "field": "__unmapped__",
+          "confidence": 13
+        }
+      ]
+    }
+  ]
+}

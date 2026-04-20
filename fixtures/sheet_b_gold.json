@@ -1,0 +1,17 @@
+{
+  "Payroll_Num": "employee_id",
+  "Full Name": "__needs_split__",
+  "Full Name__split_targets": ["first_name", "last_name"],
+  "DOB": "date_of_birth",
+  "Home State": "state",
+  "Postal Code": "zip",
+  "Base Rate": "annual_salary",
+  "Start Dt": "hire_date",
+  "FT/PT": "__unmapped__",
+  "Policy Amount": "coverage_amount",
+  "Smoker Status": "smoker",
+  "Kids": "dependent_count",
+  "Notes": "__unmapped__",
+  "Termination Date": "__unmapped__",
+  "Effective Date": "__unmapped__"
+}
