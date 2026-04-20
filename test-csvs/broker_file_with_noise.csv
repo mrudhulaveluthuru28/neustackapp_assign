@@ -1,0 +1,9 @@
+member_id,first,middle,last,dob,state_of_residence,zip_5,gross_annual,start_date,class_code,face_amount,ever_smoked,covered_lives,gender,ssn_last4,email,phone
+M-9981,Samantha,Rose,Clarke,1989-06-14,Colorado,80301,118000,2020-02-10,CL-A,500000,no,3,F,1234,samantha.clarke@example.com,(303) 555-0182
+M-9982,Derek,James,Patel,1976-11-03,Texas,77002,195000,2015-08-22,CL-B,750000,yes,4,M,5678,derek.patel@example.com,(713) 555-0917
+M-9983,Yasmin,,Ortega,1994-02-25,Washington,98101,89000,2022-09-15,CL-A,300000,no,1,F,9012,yasmin.ortega@example.com,(206) 555-0264
+M-9984,Oliver,,Hughes,1981-09-30,Massachusetts,02116,165000,2019-01-08,CL-C,600000,former,2,M,3456,oliver.hughes@example.com,(617) 555-0430
+M-9985,Amara,Nia,Okafor,1986-04-18,Georgia,30309,142000,2017-06-12,CL-B,450000,no,0,F,7890,amara.okafor@example.com,(404) 555-0713
+M-9986,Felipe,,Suarez,1993-12-07,Florida,33132,102000,2021-11-29,CL-A,400000,no,1,M,2345,felipe.suarez@example.com,(305) 555-0559
+M-9987,Hana,Kim,Lee,1979-08-21,New York,10022,225000,2012-03-05,CL-D,800000,yes,5,F,6789,hana.lee@example.com,(212) 555-0098
+M-9988,Theo,Alexander,Bennett,1990-05-11,Oregon,97209,132000,2020-07-18,CL-B,500000,no,2,M,0123,theo.bennett@example.com,(503) 555-0846
