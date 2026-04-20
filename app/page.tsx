@@ -170,6 +170,12 @@ export default function HomePage() {
         continue;
       }
       if (e.effective_field !== e.proposal.proposed_field) c.edited += 1;
+      // An explicit __unmapped__ decision is a valid outcome (model refused or user chose skip).
+      // Treat it as ready — not blocked — so it doesn't gate publish.
+      if (e.effective_field === UNMAPPED) {
+        c.ready += 1;
+        continue;
+      }
       const topDelta =
         e.proposal.alternatives && e.proposal.alternatives.length > 0
           ? e.proposal.confidence - e.proposal.alternatives[0].confidence
