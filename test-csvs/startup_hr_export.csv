@@ -1,0 +1,9 @@
+user_uuid,legal_first,legal_last,dob,work_location_state,post_code,comp_total,join_date,active_flag,life_cov,smoke_status,deps_count
+u-0001,Aiden,Barrett,1990-05-12,CA,94105,145000,2021-03-15,true,500000,non-smoker,1
+u-0002,Mei,Chen,1985-08-22,WA,98109,210000,2018-11-01,true,750000,non-smoker,2
+u-0003,Raj,Kapoor,1992-01-05,NY,10013,132000,2022-06-20,true,400000,smoker,0
+u-0004,Emma,Reyes,1988-03-17,TX,78701,175000,2019-09-10,true,600000,non-smoker,3
+u-0005,Noah,Kim,1995-11-28,MA,02110,112000,2023-02-14,true,350000,non-smoker,0
+u-0006,Zoe,Ali,1983-07-09,IL,60601,195000,2017-04-03,false,700000,former,2
+u-0007,Liam,Novak,1991-09-18,CO,80202,128000,2022-01-22,true,450000,non-smoker,1
+u-0008,Sana,Hassan,1987-12-04,OR,97201,155000,2020-07-30,true,500000,non-smoker,0
